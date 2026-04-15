@@ -600,6 +600,7 @@
         text-align: center;
         opacity: 0;
         animation: fade-up 0.8s 0.8s ease forwards;
+        line-clamp: 2;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
@@ -2212,12 +2213,23 @@
 
       /* ─── RESPONSIVE ─── */
       @media (max-width: 1024px) {
-        .hero-inner {
-          grid-template-columns: 1fr;
+        .hero {
+          padding-top: 76px;
         }
 
-        .hero-visual {
-          display: none;
+        .hero-content {
+          padding: 0 18px;
+        }
+
+        .hero-media {
+          width: min(100%, 1000px);
+          height: 320px;
+          margin-top: 24px;
+          border-radius: 26px;
+        }
+
+        .hero-media video {
+          object-position: center 58%;
         }
 
         .modules-grid {
@@ -2244,28 +2256,58 @@
           grid-template-columns: 1fr 1fr;
           gap: 32px;
         }
+
+        .testi-track {
+          padding: 0 56px;
+        }
       }
 
       @media (max-width: 768px) {
         .hero {
           min-height: auto;
-          padding: 40px 20px;
+          padding: 36px 16px 0;
+        }
+
+        .hero-content {
+          padding: 0;
         }
 
         .hero-heading {
           white-space: normal;
           line-height: 1.2;
-          font-size: clamp(1.8rem, 6vw, 2.4rem);
+          font-size: clamp(1.7rem, 6vw, 2.2rem);
+          max-width: 22ch;
         }
 
         .hero-media {
-          margin-top: 22px;
-          border-radius: 18px;
+          width: 100%;
+          height: 240px;
+          margin-top: 18px;
+          border-radius: 20px;
+          mask-image: radial-gradient(
+            ellipse 110% 96% at 50% 54%,
+            rgba(0, 0, 0, 1) 58%,
+            rgba(0, 0, 0, 0.35) 80%,
+            rgba(0, 0, 0, 0) 100%
+          );
         }
 
         .hero-media video {
           width: 100%;
           height: 100%;
+          object-position: center 56%;
+        }
+
+        .hero-actions {
+          width: 100%;
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+          width: 100%;
+          justify-content: center;
         }
 
         .nav-links {
@@ -2325,7 +2367,7 @@
         }
 
         .testi-track {
-          padding: 0 48px;
+          padding: 0 40px;
         }
 
         .testi-arrow {
@@ -2333,11 +2375,51 @@
           width: 38px;
           height: 38px;
         }
+
+        .testi-card {
+          width: min(320px, calc(100vw - 72px));
+        }
+
+        .cta-box {
+          padding: 56px 36px;
+        }
+
+        .cta-inner {
+          gap: 28px;
+        }
       }
 
       @media (max-width: 540px) {
         .section {
-          padding: 72px 5vw;
+          padding: 72px 16px;
+        }
+
+        .hero {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .hero-media {
+          height: 210px;
+          border-radius: 16px;
+          mask-image: radial-gradient(
+            ellipse 112% 98% at 50% 56%,
+            rgba(0, 0, 0, 1) 60%,
+            rgba(0, 0, 0, 0.3) 82%,
+            rgba(0, 0, 0, 0) 100%
+          );
+        }
+
+        .hero-badge {
+          margin-bottom: 18px;
+        }
+
+        .hero-sub {
+          font-size: 0.95rem;
+        }
+
+        .hero-actions {
+          margin-top: 20px;
         }
 
         .hiw-steps {
@@ -2353,7 +2435,15 @@
         }
 
         .results-grid {
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1fr;
+        }
+
+        .result-item {
+          padding: 34px 24px;
+        }
+
+        .result-val {
+          font-size: 2.6rem;
         }
 
         .footer-top {
@@ -2361,11 +2451,25 @@
         }
 
         .cta-box {
-          padding: 48px 28px;
+          padding: 46px 24px;
+          border-radius: 22px;
         }
 
         .cta-btns {
           flex-direction: column;
+        }
+
+        .testi-track {
+          padding: 0 20px;
+        }
+
+        .testi-card {
+          width: calc(100vw - 40px);
+          padding: 24px;
+        }
+
+        .testi-arrow {
+          top: calc(50% + 20px);
         }
       }
     </style>
